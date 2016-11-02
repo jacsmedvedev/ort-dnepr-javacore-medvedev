@@ -25,6 +25,5 @@ public class Medvedev_task_11_17_abc {
 			// array[i] = array[i]/firstElement;
 		}
 		System.out.print(Arrays.toString(array));
-	
 	}
 }
