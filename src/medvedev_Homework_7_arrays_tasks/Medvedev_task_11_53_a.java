@@ -11,6 +11,7 @@ public class Medvedev_task_11_53_a {
 				someshit[i] = 0;
 			}
 			
-		} System.out.print(Arrays.toString(someshit));
+		}
+		System.out.print(Arrays.toString(someshit));
 	}
 }

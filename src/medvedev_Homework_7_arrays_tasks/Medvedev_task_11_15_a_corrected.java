@@ -16,9 +16,10 @@ public class Medvedev_task_11_15_a_corrected {
 
 		System.out.println(Arrays.toString(array));
 		Scanner x = new Scanner(System.in);
-		System.out.println("Введите число от 1 до 20, " + "\nсоответсвующее индексу элемента массива --- ");
+		System.out.println("Введите число от 1 до "+ array.length + ", " +
+				"\nсоответсвующее индексу элемента массива --- ");
 		int numOfDigit = x.nextInt();
-		if (1 <= numOfDigit && numOfDigit <= 20) {
+		if (1 <= numOfDigit && numOfDigit <= array.length) {
 			double zzz = Math.sqrt(array[numOfDigit - 1]);
 			System.out.println(zzz);
 		} else {

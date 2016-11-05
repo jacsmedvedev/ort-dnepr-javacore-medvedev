@@ -16,21 +16,21 @@ public class Medvedev_task_11_15_b_corrected {
 
 		System.out.println(Arrays.toString(array));
 		Scanner x = new Scanner(System.in);
-		System.out.println("Введите первое число от 1 до 20, " + "\nсоответсвующее индексу элемента массива --- ");
+		System.out.println("Введите первое число от 1 до " + array.length + ", "
+				+ "\nсоответсвующее индексу элемента массива --- ");
 		int numOfDigit1 = x.nextInt();
-		if (1 <= numOfDigit1 && numOfDigit1 <= 20) {
-
+		if (1 <= numOfDigit1 && numOfDigit1 <= array.length) {
 			System.out.println(array[numOfDigit1 - 1]);
-			System.out.println("Введите второе число от 1 до 20, " + "\nсоответсвующее индексу элемента массива --- ");
+			System.out.println("Введите второе число от 1 до " + array.length + ", "
+					+ "\nсоответсвующее индексу элемента массива --- ");
 			int numOfDigit2 = x.nextInt();
-			if (1 <= numOfDigit2 && numOfDigit2 <= 20) {
+			if (1 <= numOfDigit2 && numOfDigit2 <= array.length) {
 				System.out.println(array[numOfDigit2 - 1]);
-				double srednee_arifmet = (array[numOfDigit1 - 1] + array[numOfDigit2 - 1]) / 2;
-				System.out.println("Result = " + srednee_arifmet);
+				double average = (array[numOfDigit1 - 1] + array[numOfDigit2 - 1]) / 2;
+				System.out.println("Result = " + average);
 			}
 			x.close();
 		}
 		System.out.println("Вы ввели недопустимое значение. Попробуйте снова.");
-
 	}
 }
