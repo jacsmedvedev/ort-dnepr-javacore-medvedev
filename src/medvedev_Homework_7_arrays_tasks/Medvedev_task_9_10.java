@@ -15,9 +15,9 @@ public class Medvedev_task_9_10 {
 	// Вывести на экран самое длинное и самое короткое название.
 
 	public static void main(String[] args) {
-		String a = "Токмак";
-		String b = "Днепр";
-		String c = "Тернополь";
+		String a = "Днепр";
+		String b = "Киев";
+		String c = "Чоп";
 
 		int a_length = a.length();
 		int b_length = b.length();
@@ -29,14 +29,26 @@ public class Medvedev_task_9_10 {
 			System.out.println(b + " - самое длинное название.");
 		} else if (c_length > a_length && c_length > b_length) {
 			System.out.println(c + " - самое длинное название.");
-		}
-
-		if (a_length < b_length && a_length < c_length)	{
+		} 
+		
+		if (a_length < b_length && a_length < c_length) {
 			System.out.println(a + " - самое короткое название.");
 		} else if (b_length < a_length && b_length < c_length) {
 			System.out.println(b + " - самое короткое название.");
 		} else if (c_length < a_length && c_length < b_length) {
 			System.out.println(c + " - самое короткое название.");
+		} 
+		
+		if (a_length == b_length && a_length == c_length && b_length == c_length) {
+			System.out.println(a + " и " + b + " и " + c + " - имеют одинаковое колличество букв.");
+		} else if (a_length == b_length) {
+			System.out.println(a + " и " + b + " - имеют одинаковое колличество букв.");
+		} else if (a_length == c_length) {
+			System.out.println(a + " и " + c + " - имеют одинаковое колличество букв.");
+		} else if (b_length == c_length) {
+			System.out.println(b + " и " + c + " - имеют одинаковое колличество букв.");
 		}
 	}
 }
+
+		
