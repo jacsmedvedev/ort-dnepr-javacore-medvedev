@@ -41,12 +41,18 @@ public class Medvedev_task_9_10 {
 		
 		if (a_length == b_length && a_length == c_length && b_length == c_length) {
 			System.out.println(a + " и " + b + " и " + c + " - имеют одинаковое колличество букв.");
-		} else if (a_length == b_length) {
-			System.out.println(a + " и " + b + " - имеют одинаковое колличество букв.");
-		} else if (a_length == c_length) {
-			System.out.println(a + " и " + c + " - имеют одинаковое колличество букв.");
-		} else if (b_length == c_length) {
-			System.out.println(b + " и " + c + " - имеют одинаковое колличество букв.");
+		} else if (a_length == b_length && a_length < c_length) {
+			System.out.println(a + " и " + b + " - имеют одинаковое колличество букв, которое меньше чем в " + c);
+		} else if (a_length == b_length && a_length > c_length) {
+				System.out.println(a + " и " + b + " - имеют одинаковое колличество букв, которое больше чем в " + c);
+		} else if (a_length == c_length && a_length < b_length) {
+			System.out.println(a + " и " + c + " - имеют одинаковое колличество букв, которое меньше чем в " + b);
+		} else if (a_length == c_length && a_length > b_length) {
+				System.out.println(a + " и " + c + " - имеют одинаковое колличество букв, которое больше чем в " + b);
+		} else if (b_length == c_length && b_length < a_length) {
+			System.out.println(b + " и " + c + " - имеют одинаковое колличество букв, которое меньше чем в " + a);
+		} else if (b_length == c_length && b_length > a_length) {
+			System.out.println(b + " и " + c + " - имеют одинаковое колличество букв, которое больше чем в " + a);
 		}
 	}
 }
