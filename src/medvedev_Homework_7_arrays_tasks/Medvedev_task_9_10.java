@@ -1,5 +1,8 @@
 package medvedev_Homework_7_arrays_tasks;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
+
 /*
  * 
  * 
@@ -7,7 +10,7 @@ package medvedev_Homework_7_arrays_tasks;
  * 
  */
 
-import java.util.Objects;
+
 
 public class Medvedev_task_9_10 {
 
@@ -15,46 +18,27 @@ public class Medvedev_task_9_10 {
 	// Вывести на экран самое длинное и самое короткое название.
 
 	public static void main(String[] args) {
-		String a = "Днепр";
-		String b = "Киев";
-		String c = "Чоп";
 
-		int a_length = a.length();
-		int b_length = b.length();
-		int c_length = c.length();
+		String[] cities = new String[] { "Днепр", "Киев", "Чоп", "Ивано-Франковск", "Токмак" };
 
-		if (a_length > b_length && a_length > c_length) {
-			System.out.println(a + " - самое длинное название.");
-		} else if (b_length > a_length && b_length > c_length) {
-			System.out.println(b + " - самое длинное название.");
-		} else if (c_length > a_length && c_length > b_length) {
-			System.out.println(c + " - самое длинное название.");
-		} 
-		
-		if (a_length < b_length && a_length < c_length) {
-			System.out.println(a + " - самое короткое название.");
-		} else if (b_length < a_length && b_length < c_length) {
-			System.out.println(b + " - самое короткое название.");
-		} else if (c_length < a_length && c_length < b_length) {
-			System.out.println(c + " - самое короткое название.");
-		} 
-		
-		if (a_length == b_length && a_length == c_length && b_length == c_length) {
-			System.out.println(a + " и " + b + " и " + c + " - имеют одинаковое колличество букв.");
-		} else if (a_length == b_length && a_length < c_length) {
-			System.out.println(a + " и " + b + " - имеют одинаковое колличество букв, которое меньше чем в " + c);
-		} else if (a_length == b_length && a_length > c_length) {
-				System.out.println(a + " и " + b + " - имеют одинаковое колличество букв, которое больше чем в " + c);
-		} else if (a_length == c_length && a_length < b_length) {
-			System.out.println(a + " и " + c + " - имеют одинаковое колличество букв, которое меньше чем в " + b);
-		} else if (a_length == c_length && a_length > b_length) {
-				System.out.println(a + " и " + c + " - имеют одинаковое колличество букв, которое больше чем в " + b);
-		} else if (b_length == c_length && b_length < a_length) {
-			System.out.println(b + " и " + c + " - имеют одинаковое колличество букв, которое меньше чем в " + a);
-		} else if (b_length == c_length && b_length > a_length) {
-			System.out.println(b + " и " + c + " - имеют одинаковое колличество букв, которое больше чем в " + a);
-		}
 	}
-}
 
+	private static void bubbleSort(String[] cities) {
+
+		for (int i = cities.length; i > 0; --i) {
+			for (int j = 0; j < i; ++j) {
+				if (cities[j].charAt(0) > cities[j + 1].charAt(0)) {
+
+					String temp = cities[j];
+					cities[j] = cities[j + 1];
+					cities[j + 1] = temp;
+				}
+			} System.out.println(Arrays.toString(cities));
+
+			// System.out.println(cities[0] + " - имеет меньше всего букв.");
+			// System.out.println(cities[cities.length-1] + " - имеет больше
+			// всего букв.");
+		}
 		
+	} 
+}
