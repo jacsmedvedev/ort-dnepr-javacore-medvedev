@@ -4,12 +4,13 @@ public class Point_properties {
 	private String name;
 	private int x;
 	private int y;
-	
+
 	public Point_properties(String PointName, int coordinate_X, int coordinate_Y) {
 		setName(PointName);
-		getx(coordinate_X);
-		gety(coordinate_Y);;
+		setx(coordinate_X);
+		sety(coordinate_Y);
 	}
+
 	public String getName() {
 		return name;
 	}
@@ -17,16 +18,20 @@ public class Point_properties {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getx(int x) {
+
+	public int getx() {
 		return x;
 	}
+
 	public void setx(int x) {
-		this.x= x;
+		this.x = x;
 	}
-	public int gety(int y) {
+
+	public int gety() {
 		return y;
 	}
-	public void sety() {
-		this.y= y;
+
+	public void sety(int y) {
+		this.y = y;
 	}
 }
