@@ -1,8 +1,3 @@
-package task_from_teacher_10;
-
-
-import java.time.LocalDate;
-
 /** 
  * Task №10
  * 
@@ -19,6 +14,9 @@ import java.time.LocalDate;
  * @author Yakov Medvedev
  * 
  */
+package task_from_teacher_10;
+
+import java.time.LocalDate;
 
 public class Pasport {
 	private Country _country;
@@ -27,10 +25,9 @@ public class Pasport {
 	private String _surname;
 	private String _name;
 	private String _patronymic;
-	private LocalDate _birthday = LocalDate.of(1989, 9, 02);;
+	private LocalDate _birthday;
 	private String _birthplace;
-	private int _age;
-	private LocalDate _dateOfIssue = LocalDate.now();
+	private LocalDate _dateOfIssue;
 	
 	public Pasport (
 			final Country country,
@@ -39,11 +36,13 @@ public class Pasport {
 			final String surname,
 			final String name,
 			final String patronymic,
-			final int year,
-			final int mounth, 
-			final int day,
+			final int yearOfBirthday,
+			final int mounthOfBirthday, 
+			final int dayOfBirthday,
 			final String birthplace,
-			final int age) {
+			final int yearOfIssue,
+			final int mounthOfIssue, 
+			final int dayOfIssue) {
 		super();
 		setCountry(country);
 		setPasportSeries(pasportSeries);
@@ -51,11 +50,9 @@ public class Pasport {
 		setSurname(surname);
 		setName(name);
 		setPatronymic(patronymic);
-		setBirthday(year,mounth,day);
+		setBirthday(yearOfBirthday,mounthOfBirthday,dayOfBirthday);
 		setBirthplace(birthplace);
-		setBirthplace(birthplace);
-		setAge(age);
-		setDateOfIssue();
+		setDateOfIssue(yearOfIssue,mounthOfIssue,dayOfIssue);
 	}
 	
 	public Pasport () {}
@@ -111,25 +108,18 @@ public class Pasport {
 	public void setBirthday(int y, int m, int d) {
 		this._birthday = LocalDate.of(y, m, d);
 	}
+	
 	public String getBirthplace() {
 		return _birthplace;
 	}
 	public void setBirthplace(String birthplace) {
 		this._birthplace = birthplace;
 	}
-	public int getAge() {
-		return _age;
-	}
-	public void setAge(int age) {
-		if (age < 0) {
-			System.out.println("You  didn't born yet, son !!!!");
-		}
-		this._age = age;
+
+	public void setDateOfIssue(int y2, int m2, int d2) {
+		this._dateOfIssue = LocalDate.of(y2, m2, d2);
 	}
 	public LocalDate getDateOfIssue() {
 		return _dateOfIssue;
-	}
-	public void setDateOfIssue() {
-		this._dateOfIssue = LocalDate.now();
 	}
 }

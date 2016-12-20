@@ -5,19 +5,21 @@ import java.time.LocalDate;
 
 public class Visa {
 	private VisaType _visaType;
+	private ForeignCountries _foreignCountries;
 	private LocalDate _openingDate;
 	private LocalDate _closingDate;
-	private Sex _sex;
+	
 	
 	public Visa( final VisaType visaType, 
+				 final ForeignCountries foreignCountries,
 				 final LocalDate openingDate, 
-				 final LocalDate closingDate, 
-				 final Sex sex) {
+				 final LocalDate closingDate
+				 ) {
 		super();
 		_visaType = visaType;
+		_foreignCountries = foreignCountries;
 		_openingDate = openingDate;
 		_closingDate = closingDate;
-		_sex = sex;
 	}
 	
 	public Visa(){};
@@ -28,6 +30,14 @@ public class Visa {
 	public void setVisaType(VisaType visaType) {
 		_visaType = visaType;
 	}
+	public ForeignCountries getForeignCountries() {
+		return _foreignCountries;
+	}
+
+	public void setForeignCountries(ForeignCountries foreignCountries) {
+		_foreignCountries = foreignCountries;
+	}
+
 	public LocalDate getOpeningDate() {
 		return _openingDate;
 	}
@@ -40,10 +50,19 @@ public class Visa {
 	public void setClosingDate(LocalDate closingDate) {
 		_closingDate = closingDate;
 	}
-	public Sex getSex() {
-		return _sex;
-	}
-	public void setSex(Sex sex) {
-		_sex = sex;
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nТип визы:              ")
+		  .append(_visaType)
+		  .append("\nСтрана следования:     ")
+		  .append(_foreignCountries)
+		  .append("\nВиза действительна от: ")
+		  .append(_openingDate)
+		  .append("\nдо:                    ")
+		  .append(_closingDate)
+		  .append("\n");
+		return sb.toString();
 	}
 }

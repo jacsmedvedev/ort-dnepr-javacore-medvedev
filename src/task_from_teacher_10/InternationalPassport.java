@@ -1,17 +1,22 @@
 package task_from_teacher_10;
 
+
+import java.util.ArrayList;
 import java.time.LocalDate;
 
 public class InternationalPassport extends Pasport {
 		
-	private Visa _visa;
+	private ArrayList <Visa> _visa = new ArrayList<Visa>();
 	private Integer _internationalPassportID;
 	
 	public InternationalPassport() {
 		super();	
 	}
 	public InternationalPassport(
-			Visa visa,
+			VisaType visaType,
+			ForeignCountries foreignCountries,
+			LocalDate openingDate, 
+			LocalDate closingDate,
 			Integer internationalPassportID,
 			Country country, 
 			String pasportSeries, 
@@ -19,24 +24,26 @@ public class InternationalPassport extends Pasport {
 			String surname, 
 			String name,
 			String patronymic, 
-			int year, 
-			int mounth, 
-			int day, 
+			int yearOfBirthday, 
+			int mounthOfBirthday, 
+			int dayOfBirthday, 
 			String birthplace, 
-			int age) {
-		super(country, pasportSeries, pasportNumber, surname, name, patronymic, year, mounth, day, birthplace, age);
-		_visa = visa;
+			int yearOfIssue,
+			int mounthOfIssue, 
+			int dayOfIssu) {
+		super(country, pasportSeries, pasportNumber, surname, name, patronymic, 
+				yearOfBirthday, mounthOfBirthday, dayOfBirthday, birthplace, yearOfIssue,mounthOfIssue,dayOfIssu);
+		setVisa(visaType, foreignCountries, openingDate, closingDate);
 		_internationalPassportID = internationalPassportID;
 	}
-	public Visa getVisa() {
+	
+	public ArrayList <Visa> getVisa() {
 		return _visa;
 	}
-	public void setVisa(VisaType visaType, 
-						LocalDate openingDate,
-						LocalDate closingDate,
-						Sex sex)
+	public void setVisa(VisaType visaType, ForeignCountries foreignCountries, 
+						LocalDate openingDate, LocalDate closingDate)
 	{
-		this._visa = new Visa(visaType, LocalDate.now(), LocalDate.of(2017, 12, 31), sex);
+		 _visa.add(new Visa(visaType, foreignCountries, openingDate, closingDate));
 	}
 
 	public Integer getInternationalPassportID() {
