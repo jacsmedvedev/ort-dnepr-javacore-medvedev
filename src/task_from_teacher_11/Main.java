@@ -53,42 +53,22 @@ public class Main {
 	public static void printPayments(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = 0; i < workers.length; ++i) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("ID_")
-			  .append((workers[i].getId()))
-			  .append("  ")
-			  .append((workers[i].getPayment()))
-			  .append("  ")
-			  .append((workers[i].getName()));	
-			System.out.println(sb.toString());
+			System.out.println(workers[i].toString());
 		}
 	}
 	
 	public static void printPaymentsFirstFive(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = 0; i < 5; ++i) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("ID_")
-			  .append((workers[i].getId()))
-			  .append("  ")
-			  .append((workers[i].getPayment()))
-			  .append("  ")
-			  .append((workers[i].getName()));	
-			System.out.println(sb.toString());
+			System.out.println(workers[i].toString());
 		}
 	}
 	
 	public static void printPaymentsLastThree(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = (workers.length - 3); i < workers.length; ++i) {
-			StringBuilder sb = new StringBuilder();
-			sb.append("ID_")
-			  .append((workers[i].getId()))
-			  .append("  ")
-			  .append((workers[i].getPayment()))
-			  .append("  ")
-			  .append((workers[i].getName()));	
-			System.out.println(sb.toString());
+			workers[i].toString();
+			System.out.println(workers[i].toString());
 		}
 	}
 }

@@ -40,4 +40,16 @@ public abstract class Worker {
 	}
 
 	public abstract void avrgMonSalary(double x);
+	
+	@Override
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("ID_")
+		  .append(getId())
+		  .append("  ")
+		  .append(getPayment())
+		  .append("  ")
+		  .append(getName());	
+		return sb.toString();
+	}
 }
