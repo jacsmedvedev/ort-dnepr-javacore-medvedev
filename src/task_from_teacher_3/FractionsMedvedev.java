@@ -24,13 +24,11 @@ package task_from_teacher_3;
 public class FractionsMedvedev {
 
 	private long  _integerPart;
-	private int _degreeOfFractionalPart;
 	private short  _fractionPart;
 	
-	public FractionsMedvedev(long integerPart, int degreeOfFractionalPart, short fractionPart) {
+	public FractionsMedvedev(long integerPart, short fractionPart) {
 		super();
 		_integerPart = integerPart;
-		_degreeOfFractionalPart = degreeOfFractionalPart;
 		_fractionPart = fractionPart;
 	}
 	
@@ -42,14 +40,6 @@ public class FractionsMedvedev {
 	
 	public void setIntegerPart(long integerPart) {
 		_integerPart = integerPart;
-	}
-	
-	public int getDegreeOfFractionalPart() {
-		return _degreeOfFractionalPart;
-	}
-
-	public void setDegreeOfFractionalPart(int degreeOfFractionalPart) {
-			_degreeOfFractionalPart = degreeOfFractionalPart;
 	}
 	
 	public short getFractionPart() {
