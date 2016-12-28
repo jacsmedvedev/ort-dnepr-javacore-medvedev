@@ -5,19 +5,19 @@ import java.time.LocalDate;
 
 public class Visa {
 	private VisaType _visaType;
-	private ForeignCountries _foreignCountries;
+	private DepartureCountry _departureCountry;
 	private LocalDate _openingDate;
 	private LocalDate _closingDate;
 	
 	
 	public Visa( final VisaType visaType, 
-				 final ForeignCountries foreignCountries,
+				 final DepartureCountry departureCountry,
 				 final LocalDate openingDate, 
 				 final LocalDate closingDate
 				 ) {
 		super();
 		_visaType = visaType;
-		_foreignCountries = foreignCountries;
+		_departureCountry = departureCountry;
 		_openingDate = openingDate;
 		_closingDate = closingDate;
 	}
@@ -30,12 +30,12 @@ public class Visa {
 	public void setVisaType(VisaType visaType) {
 		_visaType = visaType;
 	}
-	public ForeignCountries getForeignCountries() {
-		return _foreignCountries;
+	public DepartureCountry getForeignCountries() {
+		return _departureCountry;
 	}
 
-	public void setForeignCountries(ForeignCountries foreignCountries) {
-		_foreignCountries = foreignCountries;
+	public void setForeignCountries(DepartureCountry departureCountry) {
+		_departureCountry = departureCountry;
 	}
 
 	public LocalDate getOpeningDate() {
@@ -57,7 +57,7 @@ public class Visa {
 		sb.append("\nТип визы:              ")
 		  .append(_visaType)
 		  .append("\nСтрана следования:     ")
-		  .append(_foreignCountries)
+		  .append(_departureCountry)
 		  .append("\nВиза действительна от: ")
 		  .append(_openingDate)
 		  .append("\nдо:                    ")

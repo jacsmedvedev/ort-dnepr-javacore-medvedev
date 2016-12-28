@@ -6,44 +6,47 @@ import java.time.LocalDate;
 
 public class InternationalPassport extends Pasport {
 		
-	private ArrayList <Visa> _visa = new ArrayList<Visa>();
+	private static final int DEFAULT_ID = 00000000;
 	private Integer _internationalPassportID;
+	private Pasport _ukrainePasport = new Pasport();
+	private ArrayList <Visa> _visa = new ArrayList<Visa>();
+	
 	
 	public InternationalPassport() {
 		super();	
 	}
+	
 	public InternationalPassport(
-			VisaType visaType,
-			ForeignCountries foreignCountries,
-			LocalDate openingDate, 
-			LocalDate closingDate,
 			Integer internationalPassportID,
-			Country country, 
-			String pasportSeries, 
-			int pasportNumber, 
-			String surname, 
-			String name,
-			String patronymic, 
-			int yearOfBirthday, 
-			int mounthOfBirthday, 
-			int dayOfBirthday, 
-			String birthplace, 
-			int yearOfIssue,
-			int mounthOfIssue, 
-			int dayOfIssu) {
-		super(country, pasportSeries, pasportNumber, surname, name, patronymic, 
-				yearOfBirthday, mounthOfBirthday, dayOfBirthday, birthplace, yearOfIssue,mounthOfIssue,dayOfIssu);
-		setVisa(visaType, foreignCountries, openingDate, closingDate);
+			Pasport ukrainePasport,
+			VisaType visaType,
+			DepartureCountry departureCountry,
+			LocalDate openingDate, 
+			LocalDate closingDate) {
+		super();
 		_internationalPassportID = internationalPassportID;
+		_ukrainePasport = ukrainePasport;
+		setVisa(visaType, departureCountry, openingDate, closingDate);
 	}
 	
+	public InternationalPassport(Integer internationalPassportID) {
+		super();
+		_internationalPassportID = DEFAULT_ID;
+	}
+	
+	public Pasport getUkrainePasport() {
+		return _ukrainePasport;
+	}
+	public void setUkrainePasport(Pasport ukrainePasport) {
+		this._ukrainePasport = ukrainePasport;
+	}
 	public ArrayList <Visa> getVisa() {
 		return _visa;
 	}
-	public void setVisa(VisaType visaType, ForeignCountries foreignCountries, 
+	public void setVisa(VisaType visaType, DepartureCountry departureCountry, 
 						LocalDate openingDate, LocalDate closingDate)
 	{
-		 _visa.add(new Visa(visaType, foreignCountries, openingDate, closingDate));
+		 _visa.add(new Visa(visaType, departureCountry, openingDate, closingDate));
 	}
 
 	public Integer getInternationalPassportID() {
@@ -51,6 +54,23 @@ public class InternationalPassport extends Pasport {
 	}
 
 	public void setInternationalPassportID(Integer internationalPassportID) {
-		_internationalPassportID = internationalPassportID;
+		if (internationalPassportID != null){
+			_internationalPassportID = internationalPassportID;
+		} else {
+			_internationalPassportID = DEFAULT_ID;
+		}
+	}
+	
+	@Override
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		sb.append("\nInternationalPassport ID: ")
+		  .append(getInternationalPassportID())
+		  .append("\n")
+		  .append(getUkrainePasport())
+		  .append("\n")
+		  .append(getVisa())
+		  .append("\n");
+		return sb.toString();
 	}
 }

@@ -122,4 +122,28 @@ public class Pasport {
 	public LocalDate getDateOfIssue() {
 		return _dateOfIssue;
 	}
+	
+	@Override
+	 	public String toString(){
+		StringBuilder sb = new StringBuilder();	
+		sb.append("\nСтрана: ")
+		  .append(getCountry())
+		  .append("\nСерия и номер паспорта: ")
+		  .append(getPasportSeries())
+		  .append(" ")
+		  .append(getPasportNumber())
+		  .append("\n")
+		  .append(getName())
+		  .append(" ")
+          .append(getSurname())
+		  .append(" ")
+	      .append(getPatronymic())
+          .append("\nДата рождения: ")
+		  .append(getBirthday())
+		  .append("\nГород: ")
+		  .append(getBirthplace())
+		  .append("\nДата выдачи документа: ")
+		  .append(getDateOfIssue());
+		return sb.toString();
+	}
 }
