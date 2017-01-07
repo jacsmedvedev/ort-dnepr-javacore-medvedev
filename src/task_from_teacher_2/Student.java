@@ -1,5 +1,7 @@
 package task_from_teacher_2;
 
+import java.util.Arrays;
+
 /**
  * This class contains information about student some group.
  * 
@@ -9,7 +11,7 @@ package task_from_teacher_2;
 public class Student {
 	
 	private final static int DEFAULT_LENGTH = 5;
-	private final static double SCOLARSHIP = 800;
+	private final static double SCOLARSHIP = 1000;
 	
 	private String _surname;
 	private String _name;
@@ -94,7 +96,7 @@ public class Student {
 		int five = 0;
 		int four = 0;
 		int three = 0;
-		
+		int lessThree = 0;
 		for (int i = 0; i < studentMarks.length; ++i) {
 			
 			if (studentMarks[i] == 5) {
@@ -104,21 +106,41 @@ public class Student {
 			} else if (studentMarks[i] == 3) {
 				++three;
 			} else if (studentMarks[i] < 3) {
-				studentMarks[i] = 3;
+				++lessThree;
 			}
 		}
 		if (five == studentMarks.length) {
 			_newScholarships = SCOLARSHIP * 2.0;
-		} else if (five < studentMarks.length && five > 0 && 
-				   four < studentMarks.length && four > 0) {
+		} else if (five > 0 && four > 0 && three == 0 && lessThree == 0) {
 			_newScholarships = SCOLARSHIP * 1.5;
 		} else if (four == studentMarks.length) {
 			_newScholarships = SCOLARSHIP * 1.25;
-		} else if (three > 2) {
+		} else if (five > 0 && four > 0 && three < 3 && lessThree == 0) {
 			_newScholarships = SCOLARSHIP;
-		} else {
+		} else if ((five != 0 && four == 0 && three < 3 && lessThree == 0) || 
+				   (five == 0 && four != 0 && three < 3 && lessThree == 0)) {
+			_newScholarships = SCOLARSHIP; 
+		} else  if (lessThree > 0){
 			_newScholarships = 0;
 		}
 		return _newScholarships;
 		}	
+	
+	@Override
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb .append(getNewScholarships())
+		   .append("  ")
+		   .append(getSurname())
+		   .append("  ")
+		   .append(getName())
+		   .append("  ")
+		   .append(getPatronymic())
+		   .append("  ")
+		   .append(getGroup_numberr())
+		   .append("  ")
+		   .append(Arrays.toString(getExam_score()))
+		   .append("  ");;	
+		return sb.toString();
+	}
 }
