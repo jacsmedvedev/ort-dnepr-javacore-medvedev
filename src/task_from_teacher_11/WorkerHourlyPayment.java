@@ -6,8 +6,7 @@ package task_from_teacher_11;
  *
  */
 public class WorkerHourlyPayment extends Worker{
-		
-	
+			
 	public WorkerHourlyPayment(String name, double payment, int id) {
 		super(name, payment, id);
 		avrgMonSalary(payment);
@@ -17,12 +16,8 @@ public class WorkerHourlyPayment extends Worker{
 		super();
 	}
 	
-
 	@Override
 	public void avrgMonSalary(double x) {
-		 _payment = x*28.8*8;	
+		setPayment(x*28.8*8);	
 	}
-
-	
-	
 }

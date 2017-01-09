@@ -14,6 +14,6 @@ public class WorkerFixedPayment extends Worker{
 
 		@Override
 		public void avrgMonSalary(double x) {
-			 _payment = x;	
+			setPayment(x);	
 		}
 }

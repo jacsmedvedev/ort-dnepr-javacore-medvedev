@@ -3,14 +3,14 @@ package task_from_teacher_11;
 public abstract class Worker {
 
 	private String _name;
-	protected double _payment;
+	private double _payment;
 	private int _id;
 	
 	public Worker(String name, double payment, int id) {
 		super();
-		_name = name;
-		_payment = payment;
-		_id = id;
+		setName(name);
+		setPayment(payment);
+		setId(id);
 	}
 
 	public Worker() {};
@@ -44,12 +44,7 @@ public abstract class Worker {
 	@Override
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
-		sb.append("ID_")
-		  .append(getId())
-		  .append("  ")
-		  .append(getPayment())
-		  .append("  ")
-		  .append(getName());	
+		sb.append("ID_" + getId() + "  " + getPayment() + "  " + getName());	
 		return sb.toString();
 	}
 }
