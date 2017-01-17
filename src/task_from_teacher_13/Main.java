@@ -1,6 +1,8 @@
 package task_from_teacher_13;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -10,17 +12,18 @@ public class Main {
 
 		AutoOwnerDirectory catalog = new AutoOwnerDirectory();
 
-		catalog.putElement("2323", "Vasya");
-		catalog.putElement("AE 1120", "Petya");
-		catalog.putElement("1119", "Sanya");
-		catalog.putElement("1118", "Gora");
-		catalog.putElement("4567", "Misha");
-		catalog.putElement("0001", "Vlentin");
+		catalog.putElement("Vasya", Arrays.asList("1100", "АЕ 5555"));
+		catalog.putElement("Petya", Arrays.asList("3722", "АН 4321"));
+		catalog.putElement("Sanya",Arrays.asList("3442", "6362"));
+		catalog.putElement("Gora", Arrays.asList("7777", "АР 1111"));
+		catalog.putElement("Misha", Arrays.asList("5333", "6666"));
+		catalog.putElement("Valentin", Arrays.asList("4456", "1111"));
 
+		// testing methods
 		
-		catalog.findName("1119");
-		catalog.editElement("2323", "Vasya", "7777", "Vahtang");
-		catalog.removeElement("7777");
+		catalog.findName("5333");
+		catalog.editElement("Vasya", "Vahtang", Arrays.asList("7000"));
+		catalog.removeElement("Petya");
 		catalog.print();
 	}
 }
