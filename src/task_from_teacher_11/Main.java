@@ -1,33 +1,15 @@
 /**
- * Task №11
- * 
- * Построить три класса (базовый и 2 потомка), 
- * описывающих некоторых работников с почасовой оплатой 
- * (один из потомков) и фиксированной оплатой (второй потомок). 
- * Описать в базовом классе абстрактный метод для расчета среднемесячной заработной платы. 
- * Для «повременщиков» формула для расчета такова: 
- * «среднемесячная заработная плата = 20.8 * 8 * почасовую ставку», 
- * для работников с фиксированной оплатой 
- * «среднемесячная заработная плата = фиксированной месячной оплате».
- * a) Упорядочить всю последовательность работников по убыванию среднемесячного заработка. 
- * При совпадении зарплаты – упорядочивать данные по алфавиту по имени. 
- * Вывести идентификатор работника, имя и среднемесячный заработок для всех элементов списка.
- * b) Вывести первые 5 имен работников из полученного в пункте а) списка.
- * c) Вывести последние 3 идентификатора работников из полученного в пункте а) списка.
- * 
  * @author Medvedev Yakov
  */
-
 package task_from_teacher_11;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class Main {
 
 	public static void main(String[] args) {
+		
+		//workers initialization
 		
 		Worker w1 = new WorkerHourlyPayment("Vasya", 39, 1);
 		Worker w2 = new WorkerHourlyPayment("Pasha", 41, 2);
@@ -50,6 +32,7 @@ public class Main {
 		System.out.println("___________________________________");
 	}
 
+	/** method for printing workers and payments*/
 	public static void printPayments(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = 0; i < workers.length; ++i) {
@@ -57,13 +40,14 @@ public class Main {
 		}
 	}
 	
+	/** method for printing First Five workers and payments from list*/
 	public static void printPaymentsFirstFive(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = 0; i < 5; ++i) {
 			System.out.println(workers[i].toString());
 		}
 	}
-	
+	/** method for printing Last Three workers and payments from list*/
 	public static void printPaymentsLastThree(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = (workers.length - 3); i < workers.length; ++i) {

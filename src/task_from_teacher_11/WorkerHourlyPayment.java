@@ -2,6 +2,8 @@
 package task_from_teacher_11;
 
 /**
+ * This class represents workers with Hourly Payment. 
+ * 
  * @author Yakov Medvedev
  *
  */

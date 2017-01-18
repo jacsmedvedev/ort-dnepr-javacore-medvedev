@@ -1,5 +1,12 @@
 package task_from_teacher_11;
 
+/**
+ * Class contains information about worker (name, payment, ID)
+ * and abstact method for calculation average monthly salary.
+ * 
+ * @author Yakov Medvedev
+ *
+ */
 public abstract class Worker {
 
 	private String _name;

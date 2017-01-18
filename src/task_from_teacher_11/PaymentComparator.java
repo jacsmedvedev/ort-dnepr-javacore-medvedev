@@ -3,6 +3,9 @@ package task_from_teacher_11;
 import java.util.Comparator;
 
 /**
+ * This class represents a comparison of worker's payments
+ * and if they are equal compare by name.
+ * 
  * @author Yakov Medvedev
  *
  */
