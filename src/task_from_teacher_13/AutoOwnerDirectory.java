@@ -1,8 +1,5 @@
 package task_from_teacher_13;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +10,7 @@ import java.util.Map.Entry;
  * */
 public class AutoOwnerDirectory {
 
-	Map<String,List<String>> _manAndCarNumber = new HashMap<String,List<String>>();
+	private Map<String,List<String>> _manAndCarNumber = new HashMap<String,List<String>>();
 	
 	public AutoOwnerDirectory() {
 		super();
@@ -23,41 +20,59 @@ public class AutoOwnerDirectory {
 		return _manAndCarNumber;
 	}
 
-	public void setManAndCarNumber(Map<String, List<String>> manAndCarNumber) {
-		_manAndCarNumber = manAndCarNumber;
-	}
-
-	public void putElement(String name, List<String> number){
+	/**This method adds new car owner to AutoOwnerDirectory.
+	 * 
+	 * @param name car owner name 
+	 * @param number car number 
+	 */
+	public void addNewElement(String name, List<String> number){
 		_manAndCarNumber.put(name, number);
 	}
 	
+	/**
+	 * This method removes a record in AutoOwnerDirectory.
+	 * 
+	 * @param name car owner name
+	 */
 	public void removeElement(String name){
-		_manAndCarNumber.remove(name);
+		if(_manAndCarNumber.containsKey(name)){
+			_manAndCarNumber.remove(name);
+			if(_manAndCarNumber.containsKey(name) == false){
+				System.out.println("Запись с именем " + name + " успешно удалена.");
+			} else {
+				System.out.println("Запись не удалена.Повторите попытку.");
+			}
+		} else {
+			System.out.println("Записи с именем " + name + " не найдено. Уточните данные.");
+		}
 	}
 	
+	/**
+	 * This method helps to edit a record in AutoOwnerDirectory.
+	 * 
+	 * @param name current car owner name
+	 * @param newName new car owner name
+	 * @param newNumber car number of new car owner
+	 */
 	public void editElement(String name, String newName, List<String> newNumber){
-		if(this._manAndCarNumber.containsKey(name) == true ){
-			this._manAndCarNumber.remove(name);
+		if(this._manAndCarNumber.containsKey(name)){
 			this._manAndCarNumber.put(newName,newNumber);
 		}
 	}
 	
-	public void findName(String number){		
+	/**
+	 * Method finds name of car owner by car number.
+	 * 
+	 * @param number car number
+	 * @return car owner name
+	 */
+	public String findName(String number){	
+		String ownerName = null;
 		for (Entry<String, List<String>> entry: this._manAndCarNumber.entrySet()) {
 			if (entry.getValue().contains(number) == true){
-				String result =  entry.getKey();	
-				System.out.println(result + " is owner of tne car number " + number);
+			  ownerName =  entry.getKey();	
 			}
 		}
-	}
-	
-	public void print() {
-		ArrayList<Entry<String, List<String>>> list = new ArrayList<>(_manAndCarNumber.entrySet());
-		for (Entry<String, List<String>> entry : this._manAndCarNumber.entrySet()) {
-			Collections.sort(list, new CarNumberComparator());
-		}
-		for (int i = 0; i < list.size(); ++i) {
-			System.out.println(list.get(i));
-		}
+		return ownerName;
 	}
 }
