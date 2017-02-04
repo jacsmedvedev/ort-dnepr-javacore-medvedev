@@ -13,10 +13,9 @@
 package task_from_teacher_3;
 
 /**
- * Класс состоит из 3-ех полей:
+ * Класс состоит из 2-ех полей:
  * 1.Целая часть числа;
- * 2.Степень дробной части числа;
- * 3.Дробная часть числа.
+ * 2.Дробная часть числа.
  * 
  * @author Yakov Medvedev
  *
@@ -46,14 +45,15 @@ public class FractionsMedvedev {
 		return _fractionPart;
 	}
 	
-	/** При параметре _degreeOfFractionalPart = 1 
-	 * дробная часть числа не должна быть больше 9.
-	 * */
 	public void setFractionPart(short fractionPart) {
 		_fractionPart = (short) Math.abs(fractionPart);
 	}
 	
-	// Данный метод суммирует 2 числа типа FractionsMedvedev.
+	/**
+	 * This method summarizes two numbers of type FractionsMedvedev.
+	 * 
+	 * @param someNumber number of type FractionsMedvedev.
+	 */
 	public void summ(FractionsMedvedev someNumber) {
 		long commonDenominator;
 		long numeratorPartSumm;
@@ -72,7 +72,11 @@ public class FractionsMedvedev {
 		System.out.println(numeratorPartSumm + "/" + commonDenominator + " или " + resultInDouble);
 	}
 
-	// Данный метод вычитает 2 числа типа FractionsMedvedev.
+	/**
+	 * This method subtracts two numbers of type FractionsMedvedev.
+	 * 
+	 * @param someNumber number of type FractionsMedvedev.
+	 */
 	public void subtraction(FractionsMedvedev someNumber) {
 		long commonDenominator;
 		long numeratorPartSubtr;
@@ -91,7 +95,11 @@ public class FractionsMedvedev {
 		System.out.println(numeratorPartSubtr + "/" + commonDenominator + " или " + resultInDouble);
 	}
 
-	// Данный метод умножает 2 числа типа FractionsMedvedev.
+	/**
+	 * This method multiply two numbers of type FractionsMedvedev one on another.
+	 * 
+	 * @param someNumber number of type FractionsMedvedev.
+	 */
 	public void multiplication(FractionsMedvedev someNumber) {
 		long multNumerators = this.getIntegerPart() * someNumber.getIntegerPart();
 		long multDenominators = this.getFractionPart() * someNumber.getFractionPart();
@@ -109,7 +117,11 @@ public class FractionsMedvedev {
 		}
 	}
 
-	// Данный метод сравнивает 2 числа типа FractionsMedvedev.
+	/**
+	 * This method compares two numbers of type FractionsMedvedev.
+	 * 
+	 * @param someNumber number of type FractionsMedvedev.
+	 */
 	public void comparison(FractionsMedvedev someNumber) {
 		System.out.print(this.getIntegerPart() + "/" + this.getFractionPart() + " и " + someNumber.getIntegerPart() + "/"
 				+ someNumber.getFractionPart() + " - ");
