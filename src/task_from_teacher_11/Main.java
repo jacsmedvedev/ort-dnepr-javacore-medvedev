@@ -32,7 +32,10 @@ public class Main {
 		System.out.println("___________________________________");
 	}
 
-	/** method for printing workers and payments*/
+	/**
+	 * Method for printing workers and payments.
+	 * @param workers
+	 */
 	public static void printPayments(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = 0; i < workers.length; ++i) {

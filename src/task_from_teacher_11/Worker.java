@@ -46,6 +46,11 @@ public abstract class Worker {
 		_id = id;
 	}
 
+	/**
+	 * Method for calculation of the average monthly salary.
+	 * 
+	 * @param x salary rate
+	 */
 	public abstract void avrgMonSalary(double x);
 	
 	@Override
