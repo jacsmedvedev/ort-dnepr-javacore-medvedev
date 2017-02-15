@@ -1,5 +1,6 @@
 package task_from_teacher_14;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -37,13 +38,14 @@ public class CalculationHistory implements HistoryDisplay {
 	public void setCalculationHistoryList(List calculationHistoryList) {
 		_calculationHistoryList = calculationHistoryList;
 	}
-
+	
 	public String getFormatedDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy-hh:mm:ss a");
 		String res = dateFormat.format(getQueryDate());
 		return res;
 	}
-
+	
+	/**Forms string that saves to file*/
 	public String stringBuilding(String date, String query, double result){
 		StringBuilder sb = new StringBuilder();
 		sb.append(date)
@@ -55,17 +57,17 @@ public class CalculationHistory implements HistoryDisplay {
 		return sb.toString();
 	}
 	
-	public void saveToFile(String strToSave){
+	/** Save user input expression, date end result to file*/
+	public void saveToFile(String strToSave) throws IOException{
 		File saveFile = new File("Calculation_history.txt");
-		try  {
-			Writer w = new FileWriter(saveFile, true);
+		try (BufferedWriter w = new BufferedWriter(new FileWriter(saveFile, true))) {
 			w.write(strToSave);
-			w.close();
 		} catch (IOException e) {
-			throw new RuntimeException("Ошибка записи в файл", e);
+			throw new IOException("Ошибка записи в файл", e);
 		}
 	}
 	
+	/**Method displays calculationhistory in console.*/
 	@Override
 	public void showHistory() {
 		List list = new ArrayList<String>();
@@ -78,9 +80,5 @@ public class CalculationHistory implements HistoryDisplay {
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
-//		String str = list.toString();
-//		return str;
 	}
-	
-	
 }

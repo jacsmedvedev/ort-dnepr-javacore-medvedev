@@ -4,11 +4,18 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * ConsoleUserInterface reads user input string with the expression,
+ * converts and validates received data.
+ * 
+ * @author Yakov Medvedev
+ *
+ */
 public class ConsoleUserInterface  implements UserInterface {
 
 	private String _userExpression;
 	private ArrayList<String> _numsAndOprs = new ArrayList<String>();
-	private CalculatorService _cs;
+	private CalculatorService _calculatorService;
 	
 	public ConsoleUserInterface() {
 		super();
@@ -16,7 +23,7 @@ public class ConsoleUserInterface  implements UserInterface {
 
 	public ConsoleUserInterface(CalculatorService cs) {
 		super();
-		_cs = cs;
+		_calculatorService = cs;
 	}
 
 	public String getUserExpression() {
@@ -36,11 +43,11 @@ public class ConsoleUserInterface  implements UserInterface {
 	}
 
 	public CalculatorService getCs() {
-		return _cs;
+		return _calculatorService;
 	}
 
 	public void setCs(CalculatorService cs) {
-		_cs = cs;
+		_calculatorService = cs;
 	}
 
 	@Override
@@ -48,9 +55,17 @@ public class ConsoleUserInterface  implements UserInterface {
 		System.out.println("Введите выражение: ");
 			Scanner s = new Scanner(System.in);
 			setUserExpression(s.next());
-			s.close();
+			//s.close();
 			}
 
+	/**
+	 * Method parses user input string into separate elements - numbers
+	 * and arithmetic operators and writes them to list.
+	 * 
+	 * @param userInput user input string
+	 * @return 
+	 * @throws NumberFormatException
+	 */
 	public ArrayList<String> parseUserInput(String userInput) throws NumberFormatException{
 		userInput = getUserExpression();
 		String[] parsedArray = null;
@@ -62,7 +77,13 @@ public class ConsoleUserInterface  implements UserInterface {
 		return _numsAndOprs;
 	}
 	
-	public void validatorValueLimit(ArrayList<String> arrlist) throws  NumberFormatException {
+	/**
+	 * Method checks if the numbers is in a predetermined range.
+	 * 
+	 * @param arrlist user input string parsed to ArrayList
+	 * @throws NumberFormatException
+	 */
+	public void validateValueLimit(ArrayList<String> arrlist) throws  NumberFormatException {
 		arrlist = getNumsAndOprs();
 		for (int i = 0; i < arrlist.toArray().length; ++i) {
 			boolean regex = arrlist.get(i).matches("([\\d].*)");
@@ -75,7 +96,13 @@ public class ConsoleUserInterface  implements UserInterface {
 		}
 	}
 	
-	public void validatorFractionalPart(ArrayList<String> arrlist) throws  NumberFormatException{
+	/**
+	 *  Method checks fractional part of the numbers in accordance with the conditions of the task.
+	 *  
+	 * @param arrlist user input string parsed to ArrayList
+	 * @throws NumberFormatException
+	 */
+	public void validateFractionalPart(ArrayList<String> arrlist) throws  NumberFormatException{
 		arrlist = getNumsAndOprs();
 		for (int i = 0; i < arrlist.toArray().length; ++i) {
 			boolean regex = arrlist.get(i).matches("([\\d].*)");
@@ -91,10 +118,10 @@ public class ConsoleUserInterface  implements UserInterface {
 	
 	/**
 	 * Method checks user input expression for letters presence.
-	 * @param str user input string
+	 * @param str user input string parsed to ArrayList
 	 * @throws ExpressionFormatException
 	 */
-	public void validatorForLetters(String str) throws  ExpressionFormatException{
+	public void validateForLetters(String str) throws  ExpressionFormatException{
 		str = getUserExpression();
 		boolean regex = str.matches("(.*[a-zA-Z].*)");
 			if(regex){
