@@ -22,41 +22,52 @@ public class AutoOwnerDirectory {
 
 	/**This method adds new car owner to AutoOwnerDirectory.
 	 * 
-	 * @param name car owner name 
+	 * @param name new car owner name 
 	 * @param number car number 
+	 * @return true if new car owner successfully added and false if not
 	 */
-	public void addNewElement(String name, List<String> number){
+	public boolean addNewCarOwner(String name, List<String> number) {
 		_manAndCarNumber.put(name, number);
+		if (_manAndCarNumber.containsKey(name)) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	/**
 	 * This method removes a record in AutoOwnerDirectory.
 	 * 
 	 * @param name car owner name
+	 * @return true if record successfully removed and false if not
 	 */
-	public void removeElement(String name){
-		if(_manAndCarNumber.containsKey(name)){
+	public boolean removeElement(String name) {
+		boolean containsKey = _manAndCarNumber.containsKey(name);
+		if (containsKey) {
 			_manAndCarNumber.remove(name);
-			if(_manAndCarNumber.containsKey(name) == false){
-				System.out.println("Запись с именем " + name + " успешно удалена.");
+			if (_manAndCarNumber.containsKey(name)) {
+				return false;
 			} else {
-				System.out.println("Запись не удалена.Повторите попытку.");
+				return true;
 			}
 		} else {
-			System.out.println("Записи с именем " + name + " не найдено. Уточните данные.");
+			return false;
 		}
 	}
-	
 	/**
 	 * This method helps to edit a record in AutoOwnerDirectory.
 	 * 
 	 * @param name current car owner name
 	 * @param newName new car owner name
 	 * @param newNumber car number of new car owner
+	 * @return true if record successfully edited and false if not
 	 */
-	public void editElement(String name, String newName, List<String> newNumber){
+	public boolean editElement(String name, String newName, List<String> newNumber){
 		if(this._manAndCarNumber.containsKey(name)){
 			this._manAndCarNumber.put(newName,newNumber);
+			return true;
+		} else {
+			return false;
 		}
 	}
 	
@@ -69,7 +80,7 @@ public class AutoOwnerDirectory {
 	public String findName(String number){	
 		String ownerName = null;
 		for (Entry<String, List<String>> entry: this._manAndCarNumber.entrySet()) {
-			if (entry.getValue().contains(number) == true){
+			if (entry.getValue().contains(number)){
 			  ownerName =  entry.getKey();	
 			}
 		}
