@@ -9,40 +9,35 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Map<String,FiveSubjAndMarks> schoolboysSubjectsAndMarks = new HashMap<String,FiveSubjAndMarks>();
-		schoolboysSubjectsAndMarks.put("Ivanov", new FiveSubjAndMarks (new SudjectAndMark[]{
-									new SudjectAndMark("Mathematic", 5),
-									new SudjectAndMark("Physics", 4),
-									new SudjectAndMark("Chemistry", 3),
-									new SudjectAndMark("English", 5),
-									new SudjectAndMark("Drawing", 5)}));
-		schoolboysSubjectsAndMarks.put("Sidorov", new FiveSubjAndMarks (new SudjectAndMark[]{
-				new SudjectAndMark("Mathematic", 4),
-				new SudjectAndMark("Physics", 4),
-				new SudjectAndMark("Chemistry", 4),
-				new SudjectAndMark("English", 3),
-				new SudjectAndMark("Drawing", 5)}));
-		schoolboysSubjectsAndMarks.put("Dodikof", new FiveSubjAndMarks (new SudjectAndMark[]{
-				new SudjectAndMark("Mathematic", 3),
-				new SudjectAndMark("Physics", 4),
-				new SudjectAndMark("Chemistry", 5),
-				new SudjectAndMark("English", 3),
-				new SudjectAndMark("Drawing", 3)}));
-		schoolboysSubjectsAndMarks.put("Morozov", new FiveSubjAndMarks (new SudjectAndMark[]{
-				new SudjectAndMark("Mathematic", 5),
-				new SudjectAndMark("Physics", 4),
-				new SudjectAndMark("Chemistry", 3),
-				new SudjectAndMark("English", 4),
-				new SudjectAndMark("Drawing", 3)}));
-		schoolboysSubjectsAndMarks.put("Barugin", new FiveSubjAndMarks (new SudjectAndMark[]{
-				new SudjectAndMark("Mathematic", 5),
-				new SudjectAndMark("Physics", 4),
-				new SudjectAndMark("Chemistry", 4),
-				new SudjectAndMark("English", 5),
-				new SudjectAndMark("Drawing", 4)}));
+		TheClassRegister classRegister = new TheClassRegister();
 		
-		for (Entry<String,FiveSubjAndMarks> entry: schoolboysSubjectsAndMarks.entrySet()) {
-			System.out.println(entry.getKey() + " - " + entry.getValue());	
-		}
+/////////////////////////////////////////////////////////////
+		classRegister.addSchoolBoy("Ivanov");
+		classRegister.addSubjectAndMark("Ivanov","Mathematic", 5);
+		classRegister.addSubjectAndMark("Ivanov","Physics", 4);
+		classRegister.addSubjectAndMark("Ivanov","Chemistry", 3);
+		classRegister.addSubjectAndMark("Ivanov","English", 5);
+		classRegister.addSubjectAndMark("Ivanov","Drawing", 5);
+////////////////////////////////////////////////////////////		
+		classRegister.addSchoolBoy("Sidorov");
+		classRegister.addSubjectAndMark("Sidorov","Mathematic", 2);
+		classRegister.addSubjectAndMark("Sidorov","Physics", 3);
+		classRegister.addSubjectAndMark("Sidorov","Chemistry", 4);
+		classRegister.addSubjectAndMark("Sidorov","English", 3);
+		classRegister.addSubjectAndMark("Sidorov","Drawing", 5);
+///////////////////////////////////////////////////////////		
+		classRegister.addSchoolBoy("Dodikof");
+		classRegister.addSubjectAndMark("Dodikof","Mathematic", 3);
+		classRegister.addSubjectAndMark("Dodikof","Physics", 4);
+		classRegister.addSubjectAndMark("Dodikof","Chemistry", 5);
+		classRegister.addSubjectAndMark("Dodikof","English", 3);
+		classRegister.addSubjectAndMark("Dodikof","Drawing", 3);
+////////////////////////////////////////////////////////////
+		classRegister.addSchoolBoy("Morozov");
+		classRegister.addSubjectAndMark("Morozov","Mathematic", 5);
+		classRegister.addSubjectAndMark("Morozov","Physics", 4);
+		classRegister.addSubjectAndMark("Morozov","Chemistry", 4);
+		classRegister.addSubjectAndMark("Morozov","English", 4);
+		classRegister.addSubjectAndMark("Morozov","Drawing", 3);
 	}
 }
