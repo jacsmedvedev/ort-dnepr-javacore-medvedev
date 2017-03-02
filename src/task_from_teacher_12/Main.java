@@ -1,15 +1,13 @@
 package task_from_teacher_12;
 
-
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 
 public class Main {
 
+	static TheClassRegister classRegister = new TheClassRegister();
+	
 	public static void main(String[] args) {
-		
-		TheClassRegister classRegister = new TheClassRegister();
 		
 /////////////////////////////////////////////////////////////
 		classRegister.addSchoolBoy("Ivanov");
@@ -39,5 +37,25 @@ public class Main {
 		classRegister.addSubjectAndMark("Morozov","Chemistry", 4);
 		classRegister.addSubjectAndMark("Morozov","English", 4);
 		classRegister.addSubjectAndMark("Morozov","Drawing", 3);
+////////////////////////////////////////////////////////////////////		
+		
+		classRegister.deleteSchoolBoy("Morozov");
+		classRegister.deleteSubjectAndMark("Dodikof", "Drawing");
+		
+		print();
+	}
+	
+	private static void print() {
+		System.out.println("Name       Subject       Mark");
+		System.out.println("------------------------------");
+		for (Entry<String, Map<String, Integer>> item : classRegister.getList().entrySet()) {
+			System.out.println(item.getKey());
+			Map<String, Integer> x = item.getValue();
+			for (Entry<String, Integer> itemz : x.entrySet()) {
+				System.out.print("           " + itemz.getKey());
+				System.out.println("       " + itemz.getValue());
+			}
+		}
 	}
 }
+

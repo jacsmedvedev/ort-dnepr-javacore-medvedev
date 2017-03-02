@@ -18,7 +18,7 @@ public class TheClassRegister {
 	}
 
 	public Map<String, Map<String, Integer>> getList() {
-		return (Map<String, Map<String, Integer>>) _list.entrySet();
+		return  _list;
 	}
 
 	/**
@@ -59,21 +59,48 @@ public class TheClassRegister {
 	}
 		
 	/**
+	 * Delete one schoolboy wrom the list.
+	 * 
+	 * @param name name of schoolboy
+	 * @return true if new schoolboy Deleted fron the list and false if not.
+	 */
+	public boolean deleteSchoolBoy(String name) {
+		boolean res = true;
+		_list.remove(name);
+		if (_list.containsKey(name)){
+			res = false;
+		}
+		return res;
+	}
+	
+	/**
+	 * Delete couple sudject - mark wrom the list of sudjects and markss of schoolboy.
+	 * 
+	 * @param name name of schoolboy
+	 * @param subject new subject
+	 * @return true if sudject and mark deleted from the list and false if not.
+	 */
+	public boolean deleteSubjectAndMark(String name, String subject) {
+		boolean res = true;
+		for (Entry<String, Map<String, Integer>> item : _list.entrySet()) {
+			if (item.getKey() == name) {
+				item.getValue().remove(subject);
+				if (!item.getValue().entrySet().contains(subject)) {
+				} else {
+					res = false;
+				}
+			}
+		}
+		return res;
+	}
+	
+	/**
 	 * Create map which will containe sudjects and marks.
 	 * 
 	 * @return empty map for sudjects and marks
 	 */
 	public Map<String, Integer> createMapForSchoolboy(){
-		Map<String, Integer> nameMap = new HashMap<String, Integer>();
-		return nameMap;
-	}
-	
-	@Override
-	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Школота - ")
-			.append(_list);
-	
-		return sb.toString();
-	}            
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		return map;
+	}           
 }
