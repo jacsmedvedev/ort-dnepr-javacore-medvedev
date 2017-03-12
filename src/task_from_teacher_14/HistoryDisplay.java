@@ -1,5 +1,7 @@
 package task_from_teacher_14;
 
+import java.io.IOException;
+
 /**
  * History Display allows to read data (calculation history) and display the result.
  * 
@@ -8,5 +10,5 @@ package task_from_teacher_14;
  */
 public interface HistoryDisplay {
 
-	void showHistory();
+	void showHistory() throws IOException;
 }

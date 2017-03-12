@@ -1,11 +1,7 @@
 package task_from_teacher_14;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
-import javafx.scene.transform.Scale;
 
 public class Main {
 	
@@ -27,9 +23,9 @@ public class Main {
 			System.out.println(scs.getResult());
 			
 			while(true){
-			System.out.println("Нажмите 1 для повторного ввода выражения\n"
-							 + "Нажмите 2, чтобы вызвать историю вычисленний\n" 
-						+ "Нажмите 3 , чтобы выйти из приложения.");
+			System.out.println("\nPress 1 to re-enter the expression\n"
+							 + "Press 2 to see the calculation history\n" 
+					         + "Press 3 to exit the application");
 				Scanner scan = new Scanner(System.in);
 				int cs = scan.nextInt();
 				switch (cs) {
@@ -50,12 +46,15 @@ public class Main {
 		} catch (DivisionByZeroException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
+			cui.start();
 		} catch (NumberFormatException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
+			cui.start();
 		} catch (ExpressionFormatException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
+			cui.start();
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();

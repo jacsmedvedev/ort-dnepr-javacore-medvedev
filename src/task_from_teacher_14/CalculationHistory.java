@@ -5,10 +5,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.Writer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -17,13 +15,13 @@ import java.util.Scanner;
 public class CalculationHistory implements HistoryDisplay {
 
 	private Date _queryDate = new Date();
+	private File _saveFile = new File("Calculation_history.txt");
 	private List _calculationHistoryList = new ArrayList<String>();
 	
 	public CalculationHistory() {
 	}
 
 	public Date getQueryDate() {
-		
 		return _queryDate;
 	}
 
@@ -31,6 +29,14 @@ public class CalculationHistory implements HistoryDisplay {
 		_queryDate = queryDate;
 	}
 	
+	public File getSaveFile() {
+		return _saveFile;
+	}
+
+	public void setSaveFile(File saveFile) {
+		_saveFile = saveFile;
+	}
+
 	public List getCalculationHistoryList() {
 		return _calculationHistoryList;
 	}
@@ -45,8 +51,14 @@ public class CalculationHistory implements HistoryDisplay {
 		return res;
 	}
 	
-	/**Forms string that saves to file*/
-	public String stringBuilding(String date, String query, double result){
+	/**Forms string that saves to file
+	 * 
+	 * @param date
+	 * @param query
+	 * @param result
+	 * @return
+	 */
+	protected String stringBuilding(String date, String query, double result){
 		StringBuilder sb = new StringBuilder();
 		sb.append(date)
 		  .append(" Query: ")
@@ -57,10 +69,14 @@ public class CalculationHistory implements HistoryDisplay {
 		return sb.toString();
 	}
 	
-	/** Save user input expression, date end result to file*/
+	/**
+	 * Save user input expression, date end result to file
+	 * 
+	 * @param strToSave string that wrights to file with results
+	 * @throws IOException
+	 */
 	public void saveToFile(String strToSave) throws IOException{
-		File saveFile = new File("Calculation_history.txt");
-		try (BufferedWriter w = new BufferedWriter(new FileWriter(saveFile, true))) {
+		try (BufferedWriter w = new BufferedWriter(new FileWriter(_saveFile, true))) {
 			w.write(strToSave);
 		} catch (IOException e) {
 			throw new IOException("Ошибка записи в файл", e);

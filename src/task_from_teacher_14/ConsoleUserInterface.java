@@ -1,7 +1,6 @@
 package task_from_teacher_14;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -55,7 +54,6 @@ public class ConsoleUserInterface  implements UserInterface {
 		System.out.println("Введите выражение: ");
 			Scanner s = new Scanner(System.in);
 			setUserExpression(s.next());
-			//s.close();
 			}
 
 	/**
