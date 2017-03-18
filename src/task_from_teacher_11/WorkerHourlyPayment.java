@@ -19,7 +19,10 @@ public class WorkerHourlyPayment extends Worker{
 	}
 	
 	@Override
-	public void avrgMonSalary(double x) {
-		setPayment(x*28.8*8);	
+	public double avrgMonSalary(double salary) {
+		double result = 0;
+		result = salary*28.8*8;
+		setPayment(result);
+		return result;
 	}
 }

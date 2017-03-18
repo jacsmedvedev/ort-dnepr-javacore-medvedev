@@ -34,7 +34,8 @@ public class Main {
 
 	/**
 	 * Method for printing workers and payments.
-	 * @param workers
+	 * 
+	 * @param workers the array of workers, information about which will be printed
 	 */
 	public static void printPayments(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
@@ -43,14 +44,23 @@ public class Main {
 		}
 	}
 	
-	/** method for printing First Five workers and payments from list*/
+	/**
+	 * method for printing First Five workers and payments from list
+	 * 
+	 * @param workers the array of workers, information about which will be printed
+	 */
 	public static void printPaymentsFirstFive(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = 0; i < 5; ++i) {
 			System.out.println(workers[i].toString());
 		}
 	}
-	/** method for printing Last Three workers and payments from list*/
+	
+	/**
+	 * method for printing Last Three workers and payments from list
+	 * 
+	 * @param workers the array of workers, information about which will be printed
+	 */
 	public static void printPaymentsLastThree(Worker[] workers) {
 		Arrays.sort(workers, new PaymentComparator().reversed());
 		for (int i = (workers.length - 3); i < workers.length; ++i) {

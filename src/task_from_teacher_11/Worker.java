@@ -49,9 +49,10 @@ public abstract class Worker {
 	/**
 	 * Method for calculation of the average monthly salary.
 	 * 
-	 * @param x salary rate
+	 * @param salary salary rate
+	 * @return average monthly salary
 	 */
-	public abstract void avrgMonSalary(double x);
+	public abstract double avrgMonSalary(double salary);
 	
 	@Override
 	public String toString(){
