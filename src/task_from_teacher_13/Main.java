@@ -1,6 +1,10 @@
 package task_from_teacher_13;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class Main {
@@ -36,9 +40,9 @@ public class Main {
 			
 			/////////////////////////////////////////////////////////////////////////////////////
 			
-			boolean editElement = myDirectory.editElement("Vasya", "Vahtang", Arrays.asList("7000"));
+			boolean editElement = myDirectory.editElement("Vasya", Arrays.asList("7000"));
 			if (editElement){
-				System.out.println("Запись успешно переименована.");
+				System.out.println("Запись успешно отредактирована.");
 			} else {
 				System.out.println("Ошибка !!! Запись не отредактирована. Проверьте данные и повторите операцию.");
 			}
