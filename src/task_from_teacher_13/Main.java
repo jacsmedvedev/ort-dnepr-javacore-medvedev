@@ -14,10 +14,10 @@ public class Main {
 		try {
 			AutoOwnerDirectory myDirectory = new AutoOwnerDirectory();
 			myDirectory.addNewCarOwner("Vasya", Arrays.asList("1100", "АЕ 5555"));
-			myDirectory.addNewCarOwner("Petya", Arrays.asList("3722", "АН 4321"));
+			myDirectory.addNewCarOwner("Petya", Arrays.asList("3722", "АН 4321","0000"));
 			myDirectory.addNewCarOwner("Sanya",Arrays.asList("3442", "6362"));
 			myDirectory.addNewCarOwner("Gora", Arrays.asList("7777", "АР 1111"));
-			myDirectory.addNewCarOwner("Misha", Arrays.asList("5333", "6666"));
+			myDirectory.addNewCarOwner("Misha", Arrays.asList("5333", "6666","0000"));
 			myDirectory.addNewCarOwner("Valentin", Arrays.asList("4456", "1111"));
 			
 			///////////////////////////// testing methods /////////////////////////////////////////
@@ -62,12 +62,17 @@ public class Main {
 		}
 	}
 	
+	
+	
 	public static void print(Map<String, List<String>> someEntrySet) {
 		ArrayList<Entry<String, List<String>>> list = new ArrayList<>(someEntrySet.entrySet());
 		for (Entry<String, List<String>> entry : someEntrySet.entrySet()) {
+			Collections.sort(entry.getValue());
 			Collections.sort(list, (o1,o2) -> o1.getValue().toString().compareTo(o2.getValue().toString()));
 		}
 		list.forEach(i -> System.out.println(i)) ;
 	}
+	
+	
 }
 
