@@ -62,8 +62,6 @@ public class Main {
 		}
 	}
 	
-	
-	
 	public static void print(Map<String, List<String>> someEntrySet) {
 		ArrayList<Entry<String, List<String>>> list = new ArrayList<>(someEntrySet.entrySet());
 		for (Entry<String, List<String>> entry : someEntrySet.entrySet()) {
@@ -72,7 +70,5 @@ public class Main {
 		}
 		list.forEach(i -> System.out.println(i)) ;
 	}
-	
-	
 }
 
